@@ -1,5 +1,5 @@
-  import tkinter as tk
-  import random
+import tkinter as tk
+import random
   from tkinter import mainloop, messagebox
   import random
   from random import randint as int

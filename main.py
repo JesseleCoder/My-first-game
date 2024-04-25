@@ -17,12 +17,31 @@ global Armor
 Player_health_Max = 75
 Player_health = 50
 
+#AI_Powers
+def AI_Power_1():
+  if int(1,5) == 5:
+    global Player_health
+    AI_Power_attack = int(10,25)
+    Player_health = Player_health - AI_Power_attack
+    AI_Power_attack_msg = "AI Uses a power attack and Throws a big rock at you for "+str(AI_Power_attack) + " damage"
+    messagebox.showinfo(message=AI_Power_attack_msg)
+  else:
+    messagebox.showinfo(message="The AI tryed a Power attack but failed!")
+  
+
+
+
+
 #AI Defs
 
+def AI_Power():
+  global AI_POWER
+  if AI_POWER == 1:
+    AI_Power_1()
 
 def AI():
  global Player_health, AI_damge, AI_health
- AI_Turn = int(1, 3)
+ AI_Turn = int(1, 4)
  if AI_Turn == 1:
    AI_Damge_Get = int(1, AI_Damge)
    AI_Damge_msg = "The AI did " +str(AI_Damge_Get) + " Damge"
@@ -34,6 +53,8 @@ def AI():
     AI_regen_msg = "The AI has regenerated " + str(AI_regen) + " Health"
     AI_Health_mon = AI_Health_mon + AI_regen
     messagebox.showinfo(message=AI_regen_msg)
+ elif AI_Turn == 3:
+    AI_Power()
 
 #player Defs
 
@@ -93,7 +114,7 @@ if mon == 1:
   AI_Max_health = AI_Health_mon +25
   AI_Damge = int(1,15)
   AI_Armor = int(1,10)
-  AI_POWER = int(0,0)
+  AI_POWER = int(0,1)
   #BOSS MOB (UNFINISHED)
 elif mon == 2:
   AI_Max_health = 15
